@@ -8,7 +8,7 @@ Class PostSingleModel extends Model {
 		$database = new Database();
 
 		// get single post
-		$single_post_data = $database->get_associative_data_from_query("SELECT * FROM posts WHERE post_id = '$id'"); 
+		$single_post_data = $database->query_assoc("SELECT * FROM posts WHERE post_id = '$id'"); 
 
 		// close database connection
 		$database->close();

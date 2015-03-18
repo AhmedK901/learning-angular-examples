@@ -1,69 +1,61 @@
 <!DOCTYPE html>
 <html ng-app="boaxBlog">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>My Blog</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+
+  <script src="js/vendor/modernizr.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-sanitize.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+
+	<style>
+	.new-post {
+		padding-top: 10px;
+	}
+
+	.progress {
+		opacity: 0.5;
+	}
+	</style>
 </head>
 <body>
 
+	<!-- Wrap -->
 	<div id="wrap">
 
-		<div id="header" ng-controller="blogHeader">
-			<h1>{{blog_name}}</h1>
-		</div>
+		<!-- Header -->
+		<div id="header" ng-controller="blogHeader" class="row">
 
-		<div id="articles" ng-controller="content">
-
-			<div class="post" ng-repeat="post in last_posts">
-				<h2>{{ post.post_title}}</h2>
-
-				<div class="post_content" ng-bind-html="post.post_content">
+				<!-- Col: title -->
+				<div class="small-8 columns">
+						<h1>{{blog_name}}</h1>
 				</div>
+				<!-- Col: title -->
 
-				<hr>
-			</div>
+				<!-- Col: new-post -->
+				<div class="small-3 columns new-post">
+						<a href="#/add" class="button">New Post</a>
+				</div>
+				<!-- Col: new-post -->
+
 		</div>
+		<!-- /Header -->
+
+		<!-- Views Area -->
+		<div ng-view></div>
+		<!-- /Views Area -->
+
 	</div>
+	<!-- /Wrap -->
 
-	<script>
-	// url of back-end stuff
-	var backend_url = 'http://vserver/demox/mix/boaxBlog/back-end/';
-
-	// angular app
-	var app = angular.module('boaxBlog', ['ngSanitize']);
-	
-	// blog header controller
-	app.controller('blogHeader', function($scope, $http) {
-
-		// set blog name variable
-		$scope.blog_name = '';
-
-		// get blog name
-		$http.get(backend_url+'blog/setting/blog_title').success(function(data){
-			$scope.blog_name = data[0].setting_value;
-		});
-
-
-	})
-
-	// content controller
-	app.controller('content', function($scope, $http) {
-		
-		
-		
-		// set last posts object
-		$scope.last_posts = [];
-
-		// get last posts object
-		$http.get(backend_url+'blog/posts').success(function(data) {
-			$scope.last_posts = data;
-		});
-
-		
-	});
-
-
-	</script>
+	<script src="app.js"></script>
+	<script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 </body>
 </html>

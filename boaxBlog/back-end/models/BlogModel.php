@@ -8,7 +8,7 @@ Class BlogModel extends Model {
 		$database = new Database();		
 
 		// get setting data
-		$setting_data = $database->get_associative_data_from_query("SELECT * FROM setting");
+		$setting_data = $database->query_assoc("SELECT * FROM setting");
 
 		// close database connection
 		$database->close();
@@ -23,7 +23,7 @@ Class BlogModel extends Model {
 		$database = new Database();	
 
 		// get setting single value
-		$setting_key_value = $database->get_associative_data_from_query("SELECT setting_value FROM setting WHERE setting_key='$key'");
+		$setting_key_value = $database->query_assoc("SELECT setting_value FROM setting WHERE setting_key='$key'");
 
 		// close database connection
 		$database->close();

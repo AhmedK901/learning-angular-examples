@@ -13,13 +13,16 @@ $app = new Frex();
 $app->set('/blog/setting', 'BlogController:setting_data');
 
 // blog setting key value route
-$app->set('blog/setting/:key', 'BlogController:setting_key_value');
+$app->set('/blog/setting/:key', 'BlogController:setting_key_value');
 
 // posts route
 $app->set('/blog/posts', 'PostsController:lastPosts');
 
 // single post route
 $app->set('/blog/posts/single/:id', 'PostSingleController:singlePost');
+
+// add new post route
+$app->set('/blog/posts/add','PostsController:addNewPost');
 
 // run the app!
 $app->run();

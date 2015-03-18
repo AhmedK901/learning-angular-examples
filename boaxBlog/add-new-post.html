@@ -1,0 +1,49 @@
+		<!-- Add New Post Form -->
+		<div id="add-new-post" ng-controller="AddNewPostController" ng-class="{'progress': isSubmitted}">
+
+				<form>
+								<div class="row">
+										<div class="columns">
+												<label>Post Title
+														<input type="text" placeholder="Add your title here" ng-model="post_title">
+												</label>
+										</div>
+								</div>
+
+								<div class="row">
+										<div class="columns">
+												<label>Post Name
+														<input type="text" placeholder="your-post-name" ng-model="post_name">
+												</label>
+										</div>
+								</div>
+
+								<div class="row">
+										<div class="columns">
+												<label>Post Author
+														<input type="text" placeholder="John Alex" ng-model="post_author">
+												</label>
+										</div>
+								</div>
+
+								<div class="row">
+										<div class="columns">
+												<label>Post Content
+														<textarea placeholder="Your post content" ng-model="post_content"></textarea>
+												</label>
+										</div>
+								</div>
+
+								<div class="row">
+										<div class="columns">
+												<button ng-disabled="isSubmitted" class="button" ng-click="addNewPost()">Add</button>
+												<button ng-disabled="isSubmitted" class="button" ng-click="cancelAddPost()">Cancel</button>
+												
+										</div>
+								</div>
+								
+				<form>
+				
+
+		</div>
+		<!-- /Add New Post Form -->

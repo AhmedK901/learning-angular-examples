@@ -1,0 +1,24 @@
+		<!-- Articles -->
+		<div id="articles" ng-controller="content" class="row">
+
+				<!-- Col: posts -->
+				<div class="columns">
+
+						<!-- Posts -->
+						<div class="post" ng-repeat="post in last_posts">
+
+								<h3>{{ post.post_title}}</h3>
+
+								<div class="post_content" ng-bind-html="post.post_content">
+								</div>
+
+								<hr>
+
+						</div>
+						<!-- /Posts -->
+
+				</div>
+				<!-- Col: posts -->
+
+		</div>
+		<!-- /Articles -->
