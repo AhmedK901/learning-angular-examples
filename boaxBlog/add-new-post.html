@@ -1,27 +1,27 @@
 		<!-- Add New Post Form -->
 		<div id="add-new-post" ng-controller="AddNewPostController" ng-class="{'progress': isSubmitted}">
 
-				<form>
+				<form name="addNewPostForm" ng-submit="addNewPost" novalidate >
 								<div class="row">
 										<div class="columns">
-												<label>Post Title
-														<input type="text" placeholder="Add your title here" ng-model="post_title">
+												<label>Post Title *
+														<input name="post_title" type="text" placeholder="Add your title here" ng-model="post_title" ng-class="{'input-error': addNewPostForm.$submitted && addNewPostForm.post_title.$invalid}" required>
 												</label>
 										</div>
 								</div>
 
 								<div class="row">
 										<div class="columns">
-												<label>Post Name
-														<input type="text" placeholder="your-post-name" ng-model="post_name">
+												<label>Post Name *
+														<input name="post_name" type="text" placeholder="your-post-name" ng-model="post_name" ng-class="{'input-error': addNewPostForm.$submitted && addNewPostForm.post_name.$invalid}" required>
 												</label>
 										</div>
 								</div>
 
 								<div class="row">
 										<div class="columns">
-												<label>Post Author
-														<input type="text" placeholder="John Alex" ng-model="post_author">
+												<label>Post Author *
+														<input name="post_author" type="text" placeholder="John Alex" ng-model="post_author" ng-class="{'input-error': addNewPostForm.$submitted && addNewPostForm.post_author.$invalid}" required>
 												</label>
 										</div>
 								</div>
@@ -29,7 +29,7 @@
 								<div class="row">
 										<div class="columns">
 												<label>Post Content
-														<textarea placeholder="Your post content" ng-model="post_content"></textarea>
+														<textarea name="post_content" placeholder="Your post content" ng-model="post_content" ng-class="{'input-error': addNewPostForm.$submitted && addNewPostForm.post_content.$invalid}" required></textarea>
 												</label>
 										</div>
 								</div>

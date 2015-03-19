@@ -74,27 +74,41 @@ app.controller('AddNewPostController', function($scope, $http,$location) {
 
 			// the form is submitted
 			$scope.isSubmitted = true;
+
+			if ($scope.addNewPostForm.$valid) {
+
+					// insert new post
+					$http.post(backend_url+'blog/posts/add', {
+							post_title: $scope.post_title,
+							post_name: $scope.post_name,
+							post_author: $scope.post_author,
+							post_content: $scope.post_content
+					}).
+							success(function(data) {
+									console.log(data);
+
+									// set form status to default
+									$scope.isSubmitted = false;
+									$scope.addNewPostForm.$submitted = false;
+
+									// clear all input values
+									$scope.post_title = '';
+									$scope.post_name = '';
+									$scope.post_author = '';
+									$scope.post_content = '';
+
+							}).
+							error(function(data) {
+									console.log(data);
+							});
+
+			} else {
+					$scope.isSubmitted = false;
+					$scope.addNewPostForm.$submitted = false;
+			}
 				
-				// insert new post
-				$http.post(backend_url+'blog/posts/add', {
-						post_title: $scope.post_title,
-						post_name: $scope.post_name,
-						post_author: $scope.post_author,
-						post_content: $scope.post_content
-				}).
-					success(function(data) {
-							console.log(data);
+				
 
-							// set form status to default
-							$scope.isSubmitted = false;
-
-							// clear all input values
-							$scope.post_title = '';
-							$scope.post_name = '';
-							$scope.post_author = '';
-							$scope.post_content = '';
-
-					});
 		}
 
 		// cancel adding the post

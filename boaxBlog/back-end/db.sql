@@ -2,8 +2,8 @@
 -- version 4.2.5
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Mar 17, 2015 at 09:33 PM
+-- Host: localhost:8889
+-- Generation Time: Mar 19, 2015 at 11:13 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.5.14
 
@@ -25,17 +25,23 @@ CREATE TABLE `posts` (
   `post_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `post_title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `post_content` text COLLATE utf8_unicode_ci NOT NULL,
-  `post_created_at` datetime NOT NULL,
+  `post_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `post_author` varchar(40) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`post_id`, `post_name`, `post_title`, `post_content`, `post_created_at`, `post_author`) VALUES
-(1, 'first_post', 'First Post', '<p>This is a content for a post</p>', '2015-03-12 00:13:30', 'Ahmed Alkatheeri'),
-(2, 'another_post', 'Another post', '<p>This is another post content!</p>\r\n\r\n<p>However, you can edit this area.</p>', '2015-03-12 00:53:21', 'Ahmed Alkatheeri');
+(1, 'first_post', 'First Post', '<p>This is a content for a post</p>', '2015-03-11 20:13:30', 'Ahmed Alkatheeri'),
+(2, 'another_post', 'Another post', '<p>This is another post content!</p>\r\n\r\n<p>However, you can edit this area.</p>', '2015-03-11 20:53:21', 'Ahmed Alkatheeri'),
+(3, 'the-game-is-out', 'The game is out!', 'Your game is out!', '0000-00-00 00:00:00', 'Ahmed Alkatheeri'),
+(4, 'tic-tac-toe.2-beta-0-3-6-released', 'Tic Tac Toe 2beta.0.3.6 is released', '<p>Just released the beta version</p>\n<strong>Download from GitHub!</strong>', '2015-03-18 20:04:23', 'Ahmed Alkatheeri'),
+(5, 'demo-topic', 'Demo topic', '<p>This is a testing topic</p>', '2015-03-18 20:08:07', 'Ahmed Alkatheeri'),
+(6, 'another-demo', 'Another demo', '...', '2015-03-18 20:09:09', 'Ahmed Alkatheeri'),
+(7, 'testing', 'Testing', 'Just a post', '2015-03-19 21:51:55', 'John'),
+(8, 'just-a-post', 'Just a post', 'nothing!', '2015-03-19 22:10:01', 'John');
 
 -- --------------------------------------------------------
 
@@ -80,7 +86,7 @@ ALTER TABLE `setting`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `setting`
 --
