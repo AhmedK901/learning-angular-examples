@@ -1,0 +1,14 @@
+.secret {
+		padding-left: 20px;
+		padding-right: 20px;
+}
+
+#login, #register {
+		text-align: center;
+	  width: 40%;
+	  margin: 20px auto;
+}
+
+.input-error {
+		border: 1px solid red !important;
+}

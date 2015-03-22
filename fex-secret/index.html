@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="fex-secret" ng-init="isAuthorized = false">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fex Secret App</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS files -->
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script> -->
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+
+  </head>
+  <body ng-controller="AppController" ng-show="isAuthorized">
+
+    <!-- Header -->
+    <div class="row">
+        <div class="columns small-10">
+            <h1>Your Secrets</h1>
+        </div>
+
+        <div class="columns small-2">
+            <button ng-click="logoutFromApp()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Secrets -->
+    <div id="secrets" ng-controller="SecretsController" >
+
+        <div class="row secret" ng-repeat="secret in secrets">
+            <div class="columns panel small-12 ">
+                <h3>ID: {{secret.secret_id}}</h3>
+
+                <p>{{secret.secret_content}}</p>
+                <em>Created {{secret.secret_created_at}}</em>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- My angular app -->
+    <script src="js/angular-app/app.js"></script>
+    <script src="js/angular-app/controllers.js"></script>
+  </body>
+</html>

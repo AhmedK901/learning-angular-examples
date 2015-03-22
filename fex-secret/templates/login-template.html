@@ -1,0 +1,45 @@
+    <!-- Header -->
+    <div class="row">
+        <div class="columns text-center">
+            <h3>Login to app</h3>
+        </div>
+    </div>
+
+    <!-- Login form -->
+    <div id="login" ng-controller="LoginController">
+
+        <form name="loginForm" ng-submit="loginSubmit" novalidate>
+
+            <div class="row">
+                <div class="columns">
+                    <label>
+                        <input ng-class="{'input-error': incorrectData}" name="email" type="email" placeholder="Email" ng-model="email" required>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="columns">
+                    <label>
+                        <input ng-class="{'input-error': incorrectData}" name="password" type="password" placeholder="Password" ng-model="password" required>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="columns">
+                    <label>
+                        <button class="button small expand" ng-click="loginSubmit()">Login</button>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="columns text-right">
+                    <a href="#/register">not registered?</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
